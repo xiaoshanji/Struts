@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="text" namespace="/" extends="struts-default">
+        <global-results>
+            <result name="404" type="httpheader">
+                <param name="error">404</param>
+            </result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="javassist.NotFoundException" result="404"></exception-mapping>
+        </global-exception-mappings>
+        <action name="hello" class="com.shanji.over.HelloAction">
+            <result name="success">/hello.jsp</result>
+        </action>
+    </package>
+</struts>
